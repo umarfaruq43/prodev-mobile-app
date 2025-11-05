@@ -3,17 +3,18 @@ import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { styles } from "@/styles";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { router } from "expo-router";
 
 
-export default function Index() {
+export default function Signin() {
     return (
         <SafeAreaProvider>
             <SafeAreaView style={styles.container}>
-                <View style={styles.navGroup}>
-                    <Ionicons name="arrow-back" size={25} />
+                <View style={styles.navGroup} >
+                    <Ionicons name="arrow-back" size={25} onPress={() => router.back()} />
                     <Image source={require('@/assets/images/logo.png')} />
                 </View>
-                <Text style={styles.largeText}>Sign in to your</Text>
+                <Text style={styles.largeText}> Sign in to your </Text>
                 <Text style={styles.largeText}>Account</Text>
                 <Text style={styles.smallText}>
                     Enter your email and password to sign in.
@@ -86,7 +87,7 @@ export default function Index() {
 
                 <View style={styles.subTextGroup}>
                     <Text style={styles.subText}>Don't have an account?</Text>
-                    <Text style={styles.subTextJoin}>Join now</Text>
+                    <Text style={styles.subTextJoin} onPress={() => router.push("/join")}>Join now</Text>
                 </View>
             </SafeAreaView>
         </SafeAreaProvider>

@@ -3,20 +3,21 @@ import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { styles } from "@/styles/index";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { router } from "expo-router";
 
 
-export default function join() {
+export default function Join() {
     return (
         <SafeAreaProvider>
             <SafeAreaView style={styles.container}>
-                <View style={styles.navGroup}>
-                    <Ionicons name="arrow-back" size={25} />
+                <View style={styles.navGroup} >
+                    <Ionicons name="arrow-back" size={25} onPress={() => router.back()} />
                     <Image source={require('@/assets/images/logo.png')} />
                 </View>
-                <Text style={styles.largeText}>Sign in to your</Text>
+                <Text style={styles.largeText}>Create your</Text>
                 <Text style={styles.largeText}>Account</Text>
                 <Text style={styles.smallText}>
-                    Enter your email and password to sign in.
+                    Enter your email and password to create an account.
                 </Text>
 
                 <View style={styles.formGroup}>
@@ -31,11 +32,11 @@ export default function join() {
                             <FontAwesome name="eye-slash" size={24} color="#7E7B7B" />
                         </View>
                     </View>
-                    <Text style={styles.forgotPasswordText}>Forgot password?</Text>
+                    <Text style={styles.forgotPasswordText}>Password must be at least 8 characters.</Text>
                 </View>
 
                 <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Sign in</Text>
+                    <Text style={styles.buttonText}>Join</Text>
                 </TouchableOpacity>
 
                 <View style={styles.dividerGroup}>
@@ -85,11 +86,10 @@ export default function join() {
                 </View>
 
                 <View style={styles.subTextGroup}>
-                    <Text style={styles.subText}>Don't have an account?</Text>
-                    <Text style={styles.subTextJoin}>Join now</Text>
+                    <Text style={styles.subText}>Already have an account?</Text>
+                    <Text style={styles.subTextJoin} onPress={() => router.push("/signin")}>Sign in</Text>
                 </View>
             </SafeAreaView>
         </SafeAreaProvider>
     );
 }
-

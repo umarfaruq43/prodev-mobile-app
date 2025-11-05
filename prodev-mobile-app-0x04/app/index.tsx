@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import {
   Dimensions,
   Image,
@@ -39,7 +40,7 @@ export default function Index() {
               }}
             >
               <View style={styles.buttonGroup}>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={() => router.push('/join')}>
                   <Text
                     style={{
                       ...styles.textSmall,
@@ -50,7 +51,7 @@ export default function Index() {
                   </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.transparentButton}>
+                <TouchableOpacity style={styles.transparentButton} onPress={() => router.push('/signin')} >
                   <Text style={styles.textSmall}>
                     Sign In
                   </Text>
