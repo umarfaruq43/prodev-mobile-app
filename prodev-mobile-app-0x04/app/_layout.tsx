@@ -1,3 +1,4 @@
+import { styles } from "@/styles";
 import { Stack } from "expo-router";
 
 export default function RootLayout() {
