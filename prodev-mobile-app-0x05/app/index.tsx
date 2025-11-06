@@ -63,8 +63,7 @@ export default function Index() {
                   paddingVertical: 20,
                 }}
               >
-
-                <Text style={{ color: "white" }} onPress={() => router.push("/")} >
+                <Text style={{ color: "white" }} onPress={() => router.replace("/(home)")} >
                   Continue to home
                 </Text>
               </View>
